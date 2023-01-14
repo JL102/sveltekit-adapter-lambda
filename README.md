@@ -28,7 +28,7 @@ export default config;
 ```
 Copy `serverless.yml` from the root of this repo to the root of your project, make sure to change the service name.
 
-After building your app run `sls deploy` to deploy code to AWS using the build tool [serverless](https://www.serverless.com/).
+After building your app run `sls deploy` to deploy code to AWS using the build tool [serverless](https://www.npmjs.com/package/serverless).
 
 Your app can then be accessed via the CloudFront distribution created as a part of the stack.
 
