@@ -25,7 +25,8 @@
   ],
   "scripts": {
     "build": "esbuild src/serverless.js --bundle --format=esm --platform=node --external:'../index.*' --external:'../manifest.*' --outfile=files/serverless.js && cp src/shims.js files/shims.js && cp src/router.js files/router.js",
-    "prepare": "npm run build"
+    "win-build": "esbuild src/serverless.js --bundle --format=esm --platform=node --external:\"../index.*\" --external:\"../manifest.*\" --outfile=\"files/serverless.js\" && copy \"src/router.js\" \"files\" && copy \"src/shims.js\" \"files\"",
+	"prepare": "npm run build"
   },
   "dependencies": {
     "@silvermine/serverless-plugin-cloudfront-lambda-edge": "^2.2.3",
