@@ -24,8 +24,9 @@
     "files"
   ],
   "scripts": {
-    "build": "esbuild src/serverless.js --bundle --format=esm --platform=node --external:'../index.*' --external:'../manifest.*' --outfile=files/serverless.js && cp src/shims.js files/shims.js && cp src/router.js files/router.js",
-    "win-build": "esbuild src/serverless.js --bundle --format=esm --platform=node --external:\"../index.*\" --external:\"../manifest.*\" --outfile=\"files/serverless.js\" && copy \"src/router.js\" \"files\" && copy \"src/shims.js\" \"files\"",
+    "build": "esbuild src/serverless.js --bundle --format=esm --platform=node --external:../index.* --external:../manifest.* --outfile=files/serverless.js && npm run copy-files || npm run copy-files-windows",
+    "copy-files": "cp src/shims.js files && cp src/router.js files",
+    "copy-files-windows": "copy \"src\\router.js\" \"files\" && copy \"src\\shims.js\" \"files\"",
     "prepare": "npm run build"
   },
   "dependencies": {
