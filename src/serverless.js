@@ -15,6 +15,13 @@ export async function handler(event, context) {
 
   let rawURL = `https://${requestContext.domainName}${rawPath}${rawQueryString ? `?${rawQueryString}` : ''}`
 
+	console.log(context);
+	const alias = context.invokedFunctionArn.replace(/.*:/g,'');
+	
+	process.env.ALIAS = alias;
+	//process.env.TIER is overridden here during every request.
+	process.env.TIER = alias.toLowerCase();
+	
   await app.init({
 		env: process.env
 	});
