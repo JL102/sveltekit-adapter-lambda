@@ -16,7 +16,24 @@ export async function handler(event, context) {
 
   let rawURL = `https://${domainName}${rawPath}${rawQueryString ? `?${rawQueryString}` : ''}`
 
-	console.log(context);
+  /*
+   {
+      callbackWaitsForEmptyEventLoop: [Getter/Setter],
+      succeed: [Function (anonymous)],
+      fail: [Function (anonymous)],
+      done: [Function (anonymous)],
+      functionVersion: '77',
+      functionName: 'ScoutradiozVoyagerStack-SvelteFunction',
+      memoryLimitInMB: '256',
+      logGroupName: '/aws/lambda/ScoutradiozVoyagerStack-SvelteFunction',
+      logStreamName: '2023/10/10/[77]324897a51a3c479580dc75c0e052094e',
+      clientContext: undefined,
+      identity: undefined,
+      invokedFunctionArn: 'arn:aws:lambda:us-east-1:243452333432:function:ScoutradiozVoyagerStack-SvelteFunction:PROD',
+      awsRequestId: '0fcde827-1bf9-4a80-9912-ff195fcb4c5b',
+      getRemainingTimeInMillis: [Function: getRemainingTimeInMillis]
+    }
+   */
 	const alias = context.invokedFunctionArn.replace(/.*:/g,'');
 	
 	process.env.ALIAS = alias;
